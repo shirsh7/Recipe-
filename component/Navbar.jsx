@@ -1,9 +1,9 @@
 import React from 'react';
-import { FaHome, FaUtensils, FaInfoCircle, FaBookOpen } from 'react-icons/fa'; // Import icons
+import { FaHome, FaUtensils, FaInfoCircle, FaBookOpen } from 'react-icons/fa'; 
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#34495e" }}> {/* Custom color */}
+    <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#34495e" }}> 
       <div className="container-fluid">
         
         <a className="navbar-brand d-flex align-items-center text-light" href="/">
