@@ -20,13 +20,12 @@ app.post('/register',async(req,res)=>{
 
 const{username,email,password}=req.body//inserting/testing the db
 try{
-const hashedPassword= await bcrypt.hash(password,10)//to encrypt the password so that its not understandable this hash function is a part of bcrypt package and 10 time encrypt the password
-//saving password in one of the variable
-const value=new User({username,email,password:hashedPassword})//store username and email as it is in db but in case of password only store hashed(encrypted) one
+const hashedPassword= await bcrypt.hash(password,10)
+const value=new User({username,email,password:hashedPassword})
 await value.save()
 //to check if it stored successfully in db
-res.json({message:"User Registered"})//shown in api tester if you want to display in json format but to use this you have to import middleware
-console.log("User Registertation completed..")//shown in terminal
+res.json({message:"User Registered"})
+console.log("User Registertation completed..")
 }
 catch(err){
     console.log(err)
@@ -34,21 +33,20 @@ catch(err){
 })
 //login
 app.post('/login',async(req,res)=>{
-    //first i want to take data from the body
-    const {email,password}=req.body//requesting please take from the body only email and password
-try{
-    //checking whether provided email exist in db or not findone is mongodb command to find data like select in sql if found store it in user var
+   
+    const {email,password}=req.body
+    
 const user=await User.findOne({email});
-if(!user||!(await bcrypt.compare(password,user.password))){//neighter email nor password matches return the mentioned error msg
+if(!user||!(await bcrypt.compare(password,user.password))){
     return res.status(400).json({message:"Invalid Credentials"});
 }
-res.json({message:"Login successful",username:user.username});//if found show msg Login successful and and username of that user
+res.json({message:"Login successful",username:user.username});
 }
 catch(err){
     console.log(err)
 }
 })
-mongoose.connect(process.env.MONGO_URL).then(//env file used mongo_url is variable name i used
+mongoose.connect(process.env.MONGO_URL).then(
     ()=>console.log("DB IS CONNECTED")
 ).catch(
     (err)=>console.log(err)
