@@ -4,9 +4,9 @@ import { FaHome, FaUtensils, FaInfoCircle, FaBookOpen, FaPlusCircle, FaBookmark,
 const Navbar = ({ username, setUsername }) => {
   const handleLogout = () => {
     localStorage.removeItem("username");
-    localStorage.removeItem("userId"); // Ensure userId is also cleared
+    localStorage.removeItem("userId"); 
     setUsername("");
-    window.location.href = "/"; // Redirect to the home page
+    window.location.href = "/"; 
   };
   
 
