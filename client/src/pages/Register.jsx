@@ -45,7 +45,7 @@ export default function Register() {
     try {
       const response = await Axios.post("http://localhost:5000/register", 
         { 
-          username: formData.name, // Change 'name' to 'username' to match backend
+          username: formData.name, 
           email: formData.email, 
           password: formData.password 
         },
