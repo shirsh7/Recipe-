@@ -20,9 +20,9 @@ const Login = ({ setUsername }) => {
     try {
         const response = await Axios.post("http://localhost:5000/login", { email, password });
 
-        if (response.data.username && response.data.userId) {  // ✅ Ensure userId is received
+        if (response.data.username && response.data.userId) {  
             localStorage.setItem("username", response.data.username);
-            localStorage.setItem("userId", response.data.userId);  // ✅ Store userId in localStorage
+            localStorage.setItem("userId", response.data.userId);  
 
             setUsername(response.data.username); // Update state
             navigate("/"); // Redirect to homepage
