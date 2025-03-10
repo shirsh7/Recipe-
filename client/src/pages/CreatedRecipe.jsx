@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const CreatedRecipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const userId = localStorage.getItem("userId"); // Assuming user ID is stored after login
+  const userId = localStorage.getItem("userId"); 
 
   useEffect(() => {
     if (userId) {
