@@ -11,7 +11,7 @@ const CreateRecipe = () => {
     const [cookingTime, setCookingTime] = useState(0);
     const [recipes, setRecipes] = useState([]);
 
-    const userId = localStorage.getItem("userId"); // Assuming user ID is stored in localStorage
+    const userId = localStorage.getItem("userId"); 
 
     useEffect(() => {
         if (userId) {
